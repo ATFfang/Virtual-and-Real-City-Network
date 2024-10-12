@@ -1,0 +1,7 @@
+type,year,value
+physical,2019,100000
+physical,2020,100000
+physical,2023,100000
+virtual,2019,200000
+virtual,2020,200000
+virtual,2023,200000
