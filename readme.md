@@ -9,7 +9,7 @@ Here is a code project for calculating the hyper-adjacency matrix of the physica
 
 The bandwidth subfolder stores a CSV file that contains the distance bandwidth (λ), structured like the provided example file.
 
-The rawData subfolder contains:
+The ``DATA\rawData`` subfolder contains:
 
 1. A city coordinates file named “city_xy.csv”, structured like the provided example file.
 2. Yearly OD files for search and travel activities, with the .edges file extension, structured like the provided example file.
@@ -18,7 +18,7 @@ The naming convention for these files should be: "travel_year_normalized.edges" 
 **Subsequently, modify the config.py file and change the "ROOT_DIR" variable to the path of the aforementioned DATA folder.** :hamster:
 
 #### 2. Program Execution
-**Run the main.py file.** full_moon_with_face:
+**Run the main.py file.** :full_moon_with_face:
 
 Open the terminal and run ``main.py --time year``, where "year" is the year for which the data will be calculated, such as ``main.py --time 2020``
 
