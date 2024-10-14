@@ -181,18 +181,3 @@ def caculate_supra_matrix(time):
     df.to_csv(configfile.supramatrix_file_path)
 
     print(f"Finish caculate supramatrix for {time}")
-
-# 测试距离摩擦项带宽用，用完删
-def test_bandwith(time):
-    # Initialization parameters
-    configfile = CONFIGFILE(time)
-    dic_distance = CONFIGPARAMS.cityDistance()
-
-    # Create a virtual layer instance
-    virtual = Space('virtual')
-    physical = Space('physical')
-
-    # Read edge information
-    virtual.load_from_file(configfile.virtual_file_path)
-    physical.load_from_file(configfile.physical_file_path)
-
