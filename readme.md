@@ -15,7 +15,7 @@ The ``DATA\rawData`` subfolder contains:
 2. Yearly OD files for search and travel activities, with the .edges file extension, structured like the provided example file.
 The naming convention for these files should be: "travel_year_normalized.edges" for normalized travel edge data of a specific year/ "search_year_normalized.edges" for normalized search edge data of a specific year.
 
-**Subsequently, modify the config.py file and change the "ROOT_DIR" variable to the path of the aforementioned DATA folder.** :hamster:
+**Subsequently, modify the ``config.py`` file and change the "ROOT_DIR" variable to the path of the aforementioned DATA folder.** :hamster:
 
 #### 2. Program Execution
 **Run the main.py file.** :full_moon_with_face:
@@ -23,4 +23,6 @@ The naming convention for these files should be: "travel_year_normalized.edges" 
 Open the terminal and run ``main.py --time year``, where "year" is the year for which the data will be calculated, such as ``main.py --time 2020``
 
 The hyper-adjacency matrix will be stored in ``DATA\supraMatrix``:blush:.
+
+Last updated on 2024/10/15. Have a nice day!
 
