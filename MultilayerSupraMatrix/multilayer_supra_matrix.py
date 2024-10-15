@@ -80,7 +80,6 @@ def corresponding_interactions(start_city, end_city, start_layer, end_layer):
         c = 0
     else:
         cosine_similarity = dot_product / (norm1 * norm2)
-        # c = (1 + cosine_similarity) / 2
         c = cosine_similarity
     return c
 
@@ -88,29 +87,21 @@ def non_corresponding_interactions(start_city, end_city, start_layer, end_layer,
     lambda_virtual, lambda_physical, t_virtual, t_physical = para_list
     if start_layer.type == 'virtual':
         weight_distance = math.exp(-(dic_distance[start_city][end_city])/lambda_virtual)
-        p1 = start_layer.data[start_city][end_city] / sum(list(start_layer.data[start_city].values()))
-        p2 = end_layer.data[start_city][end_city] / sum(list(end_layer.data[start_city].values()))
-        c = 1 - abs(p1 - p2)
-        # print(-(dic_distance[start_city][end_city])/lambda_physical)
-        return weight_distance * c
+        
+        weight_flow = start_layer.data[start_city][end_city] / sum(list(start_layer.data[start_city].values()))
+
+        c = corresponding_interactions(end_city, end_city, start_layer, end_layer)
+
+        return weight_distance * c * weight_flow
     
     else:
         weight_distance = math.exp(-(dic_distance[start_city][end_city])/lambda_physical)
-        q1 = list(start_layer.data.keys())
-        # q1.remove(end_city)
-        q2 = list(end_layer.data.keys())
-        # q2.remove(end_city)
 
-        denominator1 = sum([start_layer.data[i][end_city] for i in q1 if end_city in start_layer.data[i].keys()])
-        denominator2 = sum([end_layer.data[i][end_city] for i in q2 if end_city in end_layer.data[i].keys()])
+        weight_flow = start_layer.data[start_city][end_city] / sum(list(start_layer.data[start_city].values()))
 
-        p1 = 0 if denominator1 == 0 else start_layer.data[start_city][end_city] / denominator1
-        p2 = 0 if denominator2 == 0 else end_layer.data[start_city][end_city] / denominator2
+        c = corresponding_interactions(end_city, end_city, start_layer, end_layer)
 
-        c = 1 - abs(p1 - p2)
-
-        # print(-(dic_distance[start_city][end_city])/lambda_physical)
-        return weight_distance * c
+        return weight_distance * c * weight_flow
 
 def dic_to_matrix(dic, diagonal=False):
     matrix = np.zeros((len(CONFIGPARAMS.cities), len(CONFIGPARAMS.cities)))

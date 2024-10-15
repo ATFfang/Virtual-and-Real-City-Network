@@ -2,14 +2,11 @@ import pandas as pd
 import math
 import csv
 global ROOT_DIR 
-ROOT_DIR = "E:\Project\Academic\虚实网络\Virtual and Real City Network\DATA\\"
+ROOT_DIR = "D:\GIS\Code\PythonCode\Virtual and Real City Network\Virtual-and-Real-City-Network\DATA\\"
 
 class CONFIGFILE():
     def __init__(self, time: int):
         self.time = time
-
-        # root directory
-        ROOT_DIR = "E:\Project\Academic\虚实网络\Virtual and Real City Network\DATA\\"
 
         # city xy file path
         self.cityXY_filepath = ROOT_DIR + "rawData\\city_xy.csv"
